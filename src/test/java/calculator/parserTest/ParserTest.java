@@ -3,10 +3,10 @@ package calculator.parserTest;
 import calculator.parser.Parser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ParserTest {
 
@@ -14,14 +14,16 @@ public class ParserTest {
     @Test
     void parseNumbers_WithValidString_ReturnsCorrectList() {
         // given(준비)
-        Parser parser = new Parser();
-        String inputString = "1;2,3";
-        String regExp = "[;,]";
-        long[] expected = {1, 2, 3};
+        final Parser parser = new Parser();
+        final String inputString = "1;2,3";
+        final String regExp = "[;,]";
+        final long[] expected = {1, 2, 3};
 
         // when(실행)
-        List<Long> list = parser.parseNumber(inputString, regExp);
-        long[] actual = list.stream().mapToLong(Long::longValue).toArray();
+        final List<Long> list = parser.parseNumber(inputString, regExp);
+        final long[] actual = list.stream()
+                .mapToLong(Long::longValue)
+                .toArray();
 
         // then(검증)
         assertArrayEquals(expected, actual);
@@ -31,9 +33,9 @@ public class ParserTest {
     @Test
     void parseNumbers_WithNegativeString_ThrowsException() {
         // given(준비)
-        Parser parser = new Parser();
-        String inputString = "1;2,-3";
-        String regExp = "[;,]";
+        final Parser parser = new Parser();
+        final String inputString = "1;2,-3";
+        final String regExp = "[;,]";
 
         // when(실행), then(검증)
         assertThrows(IllegalArgumentException.class,
