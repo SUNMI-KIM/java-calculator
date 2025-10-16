@@ -9,6 +9,6 @@ public class InputOutput {
     }
 
     public void output(Long input) {
-        System.out.println(input);
+        System.out.println("결과 : " + input);
     }
 }
