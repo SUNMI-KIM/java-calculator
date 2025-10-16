@@ -1,6 +1,7 @@
 package calculator.parserTest;
 
 import calculator.parser.Parser;
+import java.util.Arrays;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.util.List;
@@ -43,5 +44,21 @@ public class ParserTest {
 
         // then(검증)
         assertEquals(expected, actual);
+    }
+
+    @DisplayName("유효한 문자열을 파싱하면 올바른 문자열 리스트를 반환한다")
+    @Test
+    void parseString_WithValidString_ReturnsCorrectStrings() {
+
+        // given(준비)
+        final Parser parser = new Parser();
+        final String inputString = "//abc\n1a2b3c";
+        final String[] expected = {"//abc", "1a2b3c"};
+
+        // when(실행)
+        final String[] actual = parser.parseRegExpNumber(inputString);
+
+        // then(검증)
+        assertArrayEquals(expected, actual);
     }
 }

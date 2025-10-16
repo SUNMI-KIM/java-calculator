@@ -16,4 +16,8 @@ public class Parser {
     public String parseRegExp(String inputString) {
         return "[" + inputString.replaceAll("//", "") + ",;]";
     }
+
+    public String[] parseRegExpNumber(String inputString) {
+        return inputString.split("\n");
+    }
 }
