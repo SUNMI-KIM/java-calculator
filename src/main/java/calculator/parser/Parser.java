@@ -18,6 +18,6 @@ public class Parser {
     }
 
     public String[] parseRegExpNumber(String inputString) {
-        return inputString.split("\n");
+        return inputString.split("\\\\n");
     }
 }
