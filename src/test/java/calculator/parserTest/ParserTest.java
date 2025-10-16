@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParserTest {
 
@@ -26,5 +27,21 @@ public class ParserTest {
 
         // then(검증)
         assertArrayEquals(expected, actual);
+    }
+
+    @DisplayName("유효한 문자열을 파싱하면 올바른 문자열을 반환한다")
+    @Test
+    void parseString_WithValidString_ReturnsCorrectString() {
+
+        // given(준비)
+        final Parser parser = new Parser();
+        final String inputString = "//123";
+        final String expected = "[123,;]";
+
+        // when(실행)
+        final String actual = parser.parseRegExp(inputString);
+
+        // then(검증)
+        assertEquals(expected, actual);
     }
 }

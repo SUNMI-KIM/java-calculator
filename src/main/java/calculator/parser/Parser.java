@@ -12,4 +12,8 @@ public class Parser {
                 .boxed()
                 .collect(Collectors.toList());
     }
+
+    public String parseRegExp(String inputString) {
+        return "[" + inputString.replaceAll("//", "") + ",;]";
+    }
 }
