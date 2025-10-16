@@ -7,4 +7,11 @@ public class Check {
             throw new IllegalArgumentException();
         }
     }
+
+    public void checkNumberFormat(String inputString, String regExp) {
+        regExp = "((\\d" + regExp + "*)*\\d)?";
+        if (!inputString.matches(regExp)) {
+            throw new IllegalArgumentException();
+        }
+    }
 }

@@ -2,6 +2,7 @@ package calculator.checkTest;
 
 import calculator.check.Check;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -19,5 +20,18 @@ public class CheckTest {
 
         // when, then
         assertThrows(IllegalArgumentException.class, () -> check.checkFormat(inputString));
+    }
+
+    @DisplayName("format에 맞지 않는 숫자 문자열이 들어올 경우 에러를 발생시킨다")
+    @Test
+    void throwsExceptionForInvalidNumberFormat() {
+
+        // given
+        final Check check = new Check();
+        final String inputString = "1:2,3;4";
+        final String regExp = "[,;]";
+
+        // when, then
+        assertThrows(IllegalArgumentException.class, () -> check.checkNumberFormat(inputString, regExp));
     }
 }
