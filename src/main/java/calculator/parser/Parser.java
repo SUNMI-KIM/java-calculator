@@ -8,13 +8,8 @@ public class Parser {
 
     public List<Long> parseNumber(String inputString, String regExp) {
         return Arrays.stream(inputString.split(regExp))
-                .map(s -> {
-                    long l = Long.parseLong(s);
-                    if (l < 0) {
-                        throw new IllegalArgumentException();
-                    }
-                    return l;
-                })
+                .mapToLong(Long::parseLong)
+                .boxed()
                 .collect(Collectors.toList());
     }
 }
