@@ -7,6 +7,11 @@ import java.util.stream.Collectors;
 public class Parser {
 
     public List<Long> parseNumber(String inputString, String regExp) {
+
+        if (inputString.isEmpty()) {
+            return List.of(0L);
+        }
+
         return Arrays.stream(inputString.split(regExp))
             .mapToLong(Long::parseLong)
             .boxed()
