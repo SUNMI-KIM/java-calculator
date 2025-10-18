@@ -14,7 +14,7 @@ public class Parser {
     }
 
     public String parseRegExp(String inputString) {
-        return "[" + inputString + ",;]";
+        return "[" + inputString + ",:]";
     }
 
     public String[] parseRegExpNumber(String inputString) {
@@ -27,9 +27,9 @@ public class Parser {
             String[] parts = inputString.split("\\\\n");
             String regExpPart = parts[0].replace("//", "");
             String numberPart = parts.length > 1 ? parts[1] : "";
-            return new String[]{regExpPart, numberPart};
+            return new String[]{parseRegExp(regExpPart), numberPart};
         }
 
-        return new String[]{"", inputString};
+        return new String[]{"[,:]", inputString};
     }
 }
