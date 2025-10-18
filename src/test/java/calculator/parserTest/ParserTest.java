@@ -41,7 +41,7 @@ public class ParserTest {
         // given(준비)
         final Parser parser = new Parser();
         final String inputString = "123";
-        final String expected = "[123,;]";
+        final String expected = "[123,:]";
 
         // when(실행)
         final String actual = parser.parseRegExp(inputString);
@@ -67,9 +67,9 @@ public class ParserTest {
     // 테스트 케이스 제공 메서드
     private static Stream<Arguments> provideInputStrings() {
         return Stream.of(
-                org.junit.jupiter.params.provider.Arguments.of("//;\\n1;2;3", new String[]{";", "1;2;3"}),
-                org.junit.jupiter.params.provider.Arguments.of("//;\\n", new String[]{";", ""}),
-                org.junit.jupiter.params.provider.Arguments.of("1,2:3", new String[]{"", "1,2:3"}),
+                org.junit.jupiter.params.provider.Arguments.of("//;\\n1;2;3", new String[]{"[;,:]", "1;2;3"}),
+                org.junit.jupiter.params.provider.Arguments.of("//;\\n", new String[]{"[;,:]", ""}),
+                org.junit.jupiter.params.provider.Arguments.of("1,2:3", new String[]{"[,:]", "1,2:3"}),
                 org.junit.jupiter.params.provider.Arguments.of("", new String[]{"", ""})
         );
     }
