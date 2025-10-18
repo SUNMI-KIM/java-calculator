@@ -22,7 +22,7 @@
 ## 프로젝트 구조
 
 
-![](https://velog.velcdn.com/images/hariaus/post/377db0bc-84ee-4971-9a98-31c7a2156b37/image.jpeg)
+![](https://velog.velcdn.com/images/hariaus/post/04fd4511-91b0-4c90-83f7-ef09cb730235/image.png)
 
 ## 기능 요구 사항
 
